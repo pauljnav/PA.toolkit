@@ -3,14 +3,17 @@
 ## Onboarding request
 
 The provisioning request is supplied by email using a fixed template:
-
-User:       joe.bloggs@contoso.com
-BU:         Operations
-Teams:      Portal Users
-Security:   Portal User
-Web Roles:  Customer
-Groups:     Operations
-Categories: Clinical
+```json
+{
+  "User": "joe.bloggs@contoso.com",
+  "BU": "Operations",
+  "Team": "Portal Users",
+  "Security": "Portal User",
+  "WebRole": "Customer",
+  "Group": "Operations",
+  "Category": "Clinical"
+}
+```
 
 The values identify the desired PROD configuration. The flow validates the requested configuration before making any changes.
 
@@ -28,9 +31,9 @@ The values identify the desired PROD configuration. The flow validates the reque
 
 Assign:
 
-* **1 × Business Unit**
-* **1 × or more Security Roles**
-* **1 × or more Teams**
+* **1x Business Unit**
+* **1x or more Security Roles**
+* **1x or more Teams**
 
 The initial version should use the values explicitly supplied in the onboarding request.
 
@@ -40,9 +43,9 @@ The initial version should use the values explicitly supplied in the onboarding 
 * Do not create a duplicate Contact if one already exists.
 * Assign:
 
-  * **1 × or more Web Roles**
-  * **1 × or more Portal Groups**
-  * **1 × or more Portal Categories**
+  * **1x Web Role**
+  * **1x Portal Group**
+  * **1x ortal Category**
 
 ---
 
@@ -60,11 +63,11 @@ Onboarding Email
        ├── User
        ├── BU
        ├── Team(s)
-       ├── Security Role(s)
+       ├── Security Role
        ├── Contact
-       ├── Web Role(s)
-       ├── Portal Group(s)
-       └── Portal Category(s)
+       ├── Web Role
+       ├── Portal Group
+       └── Portal Category
        │
        ▼
     DRY RUN
@@ -94,12 +97,12 @@ Before changing PROD, validate that all requested objects exist and are usable:
 * Entra ID user
 * Dataverse environment
 * Business Unit
-* Security Role(s)
+* Security Role
 * Team(s)
 * Power Pages Contact
-* Web Role(s)
-* Portal Group(s)
-* Portal Category(s)
+* Web Role
+* Portal Group
+* Portal Category
 
 If validation fails, **make no changes** and report the problem.
 
@@ -109,13 +112,13 @@ Example:
 PROVISIONING BLOCKED
 
 User:       joe.bloggs@company.ie
-BU:         Operations        ✓
-Team:       Portal Users      ✓
-Security:   Portal User       ✓
-Contact:    Found             ✓
-Web Role:   Customer           ✓
-Group:      Operations         ✓
-Category:   Clinical           ✗ NOT FOUND
+BU:         Operations    ✓
+Team:       Portal Users  ✓
+Security:   Portal User   ✓
+Contact:    Found         ✓
+Web Role:   Customer      ✓
+Group:      Operations    ✓
+Category:   Clinical      ✗ NOT FOUND
 
 No changes were made to PROD.
 ```
@@ -137,13 +140,13 @@ Dataverse
   ✓ User exists
   ✓ BU: Operations
   + Add Team: Portal Users
-  + Assign Security Role: Portal User
+  + Assign Security Role:   Portal User
 
 Power Pages
   ✓ Contact found
-  + Add Web Role: Customer
-  + Add Portal Group: Operations
-  + Add Portal Category: Clinical
+  + Assign Web Role:        Customer
+  + Assign Portal Group:    Operations
+  + Assign Portal Category: Clinical
 
 No changes have been made.
 ```
