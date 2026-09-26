@@ -4,7 +4,7 @@
 
 The provisioning request is supplied by email using a fixed template:
 
-User:       [joe.bloggs@company.ie](mailto:joe.bloggs@company.ie)
+User:       joe.bloggs@contoso.com
 BU:         Operations
 Teams:      Portal Users
 Security:   Portal User
