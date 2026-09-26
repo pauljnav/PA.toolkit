@@ -18,7 +18,7 @@ is ever sent.
 ## Install
 
 ```powershell
-Import-Module ./PowerPlatform.Toolkit/PowerPlatform.Toolkit.psd1
+Import-Module ./PowerPlatform.Toolkit.psd1
 ```
 
 ## Quick start
@@ -42,7 +42,7 @@ Set-PowerPlatformRecordField -EntitySet adx_websites -Id $site.adx_websiteid -Fi
 # Snapshot everything to disk
 Export-PowerPlatformInventory -OutputPath ./inventory.json
 
-Disconnect-PowerPlatformSession
+Disconnect-tformSession
 ```
 
 ## Security model
